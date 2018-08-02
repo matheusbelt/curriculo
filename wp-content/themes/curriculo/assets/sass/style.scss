@@ -1,0 +1,360 @@
+// ==========================================================================
+// Theme Style Main
+// ==========================================================================
+
+/*!
+Theme Name: Odin
+Author URI: http://wpod.in/
+Description: Odin main stylesheet.
+Author: the Odin team
+Author URI: http://wpod.in/#colaboradores
+*/
+
+@import
+        "variables",           // Theme       Custom Variables
+        "bootstrap/bootstrap", // Bootstrap   Styles Core
+        "wordpress/wordpress", // WordPress   Styles Core
+        //"woocommerce",       // WooCommerce Styles Core
+        "odin/core",           // Odin        Styles Core
+        "layout"               // Theme       Custom Layout
+;
+
+//GERAL
+*{
+	font-family: $corpo-texto;
+}
+body{
+	margin: 0;
+}
+.texto-corpo{
+	line-height: 25px;
+	font-size: 16px;
+}
+
+.section{
+	padding-bottom: $gutter;
+	padding-top: $gutter/2;
+
+	&__title{
+		text-align: center;
+		font-family: $title-font;
+		font-size: $title-font-size;
+		text-transform: uppercase;
+		margin-bottom: 40px;
+		letter-spacing: 2px;
+	}
+}
+
+.btn-c{
+	button{
+		background: none;
+		border-radius: 30px;
+		border: 2px solid white;
+		color: white;
+		text-transform: uppercase;
+		font-size: 30px;
+		padding: 10px 60px;
+
+		&:hover{
+			color: white;
+			background: $preto;
+		}
+	}
+}
+
+.no-padding{
+	padding-left: 0;
+	padding-right: 0;
+}
+
+
+
+//HEADER  ##############################################################################
+//tirar estilo do odin
+#header .page-header{
+	border: none;
+	margin: 10px 0 5px 0;
+}
+.navbar-default{
+	border: none;
+	background: none;
+	li a{
+		padding: 15px;
+	}
+}//limpando o estilo do odin
+
+//menu total
+.true-header{
+	position: fixed;
+	background: rgba(0,0,0,.0);
+	width: 100%;
+	max-height: 75px;
+	z-index: 10;
+}
+.header-background{
+	background: white;
+	transition: .3s;
+}
+.site-title{
+	text-transform: uppercase;
+	color: white;
+	font-size: 20px;
+	font-family: $title-font;
+	font-weight: bold;
+}
+//menu depois do container
+.header{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	flex: 1;
+} //posicionamento do header
+
+.nav-menu{
+	display: flex;
+	list-style: none;
+
+	&__li{
+		padding: 10px;
+		padding-top: 15px;
+		text-transform: uppercase;
+		font-size: 16px;
+		font-family: $title-font;
+		color: white;
+	}
+} //posicionamento do menu
+
+.navbar-default{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+// PAGINA DE CURRICULO #######################################################################
+.hero{
+	height: 65vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+	h1{
+		font-size: 70px;
+		font-family: $hero-font;
+		font-weight: 900;
+		text-transform: uppercase;
+		margin-top: -100px;
+		margin-bottom: 70px;
+		color: white;
+		text-align: center;
+	}
+}
+
+//sobre
+.sobre-section{
+	background: #e2e2e2;
+	&__img{
+		img{
+			max-width: 100%;
+		}
+	}
+	&__conteudo{
+		&--texto-corrido{
+			margin-top: 20px;
+		}
+	}
+}
+
+//experiencias
+.experiencias{
+	&__single{
+		margin-top: $gutter;
+
+		&--titulo{
+			font-weight: bold;
+		}
+		&--ano{
+			font-style: italic;
+		}
+		&--subtitulo{
+			font-size: 24px;
+		}
+	}
+	&__icone{
+		img{
+			margin-top:20px;
+		}
+	}
+}
+.time-line{
+	&__progresso{
+		display: block;
+		width: calc(100% - 20px);
+		height:20px;
+		background: $cor-primaria-clara;
+	}
+	&__seta{
+		background: $cor-primaria-clara;
+		width: 16px;
+		height: 16px;
+		margin-left: -10px;
+		margin-bottom: -4px;
+		transform: rotate(45deg);
+		display: inline-block;
+	}
+	&__ano{
+		color: white;
+		background: $cor-primaria-escura;
+		padding: 5px 10px 0 10px;
+		margin: 0;
+		max-width: 100px;
+	}
+	&__info{
+		@extend .time-line__ano;
+		max-width: 90%;
+		padding-top: 20px;
+		padding-bottom: 10px;
+
+		h3{
+			margin-top: 0;
+		}
+	}
+}
+
+//habilidades
+.habilidades-section{
+	background: #e6e9ed;
+}
+.habilidades{
+	margin-top: 10px;
+	font-size: 16px;
+
+	&-principais{
+		padding-bottom: 40px;
+		border-bottom: 2px solid $cor-secundaria-escura;
+	}
+
+	&__title{
+		margin-top: 40px;
+	}
+
+	&__circulos{
+		min-height: 22px;
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		padding-right: 20px;
+
+		&--circulo-fechado{
+			width: 10px;
+			height: 10px;
+			border-radius: 100%;
+			border: 1px solid $cor-primaria-clara;
+			background: $cor-primaria-clara;
+			margin-right: 7px;
+		}
+		&--circulo-aberto{
+			@extend .habilidades__circulos--circulo-fechado;
+			background: none;
+		}
+	}
+}
+
+
+
+//contato
+.contato-section{
+	background: $preto;
+	color: white;
+}
+.contato{
+	&__links{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		&--links{
+			margin-top: 20px;
+			margin-left: 20px;
+		}
+		a{
+			color: $cor-primaria-clara;
+			&:hover{
+				text-decoration: none;
+			}
+		}
+
+		i{
+			font-size: 40px;
+			margin-right: 20px;
+			margin-bottom: 20px;
+			color: $cor-primaria-clara;
+
+			&:hover{
+				transform: rotate(-15deg);
+				transition: .3s;
+			}
+		}
+	}
+	&__name{
+		@extend .site-title;
+		font-size: 24px;
+	}
+}
+
+//form de contato
+.error{
+  padding: 5px 9px;
+  border: 1px solid red;
+  color: red;
+  border-radius: 3px;
+}
+
+.success{
+  padding: 5px 9px;
+  border: 1px solid green;
+  color: green;
+  border-radius: 3px;
+}
+.contato__form{
+	input, textarea{
+		background: none;
+		border: none;
+		border-bottom: 1px solid $cor-primaria-clara;
+
+		&:active, &:focus{
+			outline: none;
+		}
+	}
+	p{
+		padding-left: 0;
+	}
+	&--max-width{
+		width: 100%;
+
+		input, textarea{
+			width: 100%;
+		}
+	}
+	.submit-button{
+		color: white;
+		border: 1px solid $cor-primaria-clara;
+		background: none;
+		border-radius: 30px;
+		padding: 5px 30px;
+
+		&:hover, &:active, &:focus{
+			background: $cor-primaria-clara;
+			transition: .3s;
+			border: 1px solid $cor-primaria-clara;
+			color: white;
+		}
+	}
+}
+
+
+//FOOTER
+footer{
+	background: $preto;
+	color: white;
+	text-align: center;
+}
